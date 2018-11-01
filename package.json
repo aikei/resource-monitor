@@ -1,0 +1,22 @@
+{
+  "name": "resource-monitor",
+  "version": "1.0.1",
+  "description": "simple resource monitoring app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "resource",
+    "monitor"
+  ],
+  "author": "aikei",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "get-node-arguments": "^1.0.0"
+  },
+  "bin": {
+    "resource-monitor": "./cli.js"
+  }
+}
