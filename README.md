@@ -25,7 +25,7 @@ Then start it:
 resource-monitor
 ```
 
-This will log to console default `"ps -aux | egrep 'node|mysql|redis'"` and `top -n 1 -b | egrep -w 'redis|node|mysql|top|Tasks|cpu|Mem|Swap'` commands every 10 seconds.
+This will log to console default `"ps -aux"` and `"top -n 1 -b"` commands every 10 seconds.
 
 ## Change Logging Interval
 
@@ -46,7 +46,7 @@ resource-monitor +interval-min 5
 To log to file:
 
 ```bash
-resource-monitor 1>monitor.out
+resource-monitor 1>monitor.out 2>monitor.err
 ```
 
 ## Custom Commands
@@ -63,7 +63,7 @@ This will run `ps -ef` and `top -n 1 -b` every 10 seconds.
 
 To set timezone use `+tz` command line argument. This will result in time being printed in your timezone:
 
-```
+```bash
 resource-monitor +tz Asia/Calcutta
 ```
 

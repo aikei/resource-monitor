@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const ResourceMonitor = require("./index");
 const args = require("get-node-arguments")();
 let interval = 10000;
@@ -8,7 +10,7 @@ if (args["+interval-sec"]) {
 }
 
 if (args["+interval-min"]) {
-    interval = Number(args["+interval-sec"][0])*60*1000;
+    interval = Number(args["+interval-min"][0])*60*1000;
 }
 
 // Asia/Calcutta
@@ -19,11 +21,21 @@ if (args["+tz"]) {
 
 if (args["+cmd"]) {
     options.commands = [];
-    commands = args["+cmd"];
+    let commands = args["+cmd"];
     commands.forEach(cmd => {
         let cmdSpace = cmd.replace(/:/g," ");
         options.commands.push(cmdSpace);
     });
+}
+
+if (args["+add-cmd"]) {
+    options.commands = [];
+    let commands = args["+add-cmd"];
+    commands.forEach(cmd => {
+        let cmdSpace = cmd.replace(/:/g," ");
+        options.commands.push(cmdSpace);
+    });
+    options.default = true;
 }
 
 options.interval = interval;

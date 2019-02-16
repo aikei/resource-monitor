@@ -5,8 +5,9 @@ class ResourceMonitor {
 
     constructor(options) {
         this.default = [];
-        this.default.push("ps -aux | egrep 'node|mysql|redis'");
-        this.default.push("top -n 1 -b | egrep -w 'redis|node|mysql|top|Tasks|cpu|Mem|Swap'");
+        this.default.push("ps -aux");
+        this.default.push("top -n 1 -b");
+        this.default.push("df -h");
         this.options = options;
 
         this.list = [];
@@ -29,6 +30,7 @@ class ResourceMonitor {
     }
 
     start() {
+        this.tick();
         this.intervalId = setInterval(this.tick.bind(this), this.options.interval || 10000);
     }
 
