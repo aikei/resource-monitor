@@ -6,8 +6,9 @@ class ResourceMonitor {
     constructor(options) {
         this.default = [];
         this.default.push("ps -aux");
-        this.default.push("top -n 1 -b");
+        this.default.push("top -n 1 -b -c");
         this.default.push("df -h");
+        this.default.push("free -h");
         this.options = options;
 
         this.list = [];
